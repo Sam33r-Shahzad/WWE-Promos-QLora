@@ -79,7 +79,7 @@ def model_predict(item):
 
     inputs = tokenizer([text], return_tensors="pt").to("cuda")
     with torch.no_grad():
-        output_ids = fine_tuned_model.generate(**inputs, max_new_tokens=150)
+        output_ids = fine_tuned_model.generate(**inputs, max_new_tokens=400)
 
     prompt_len = inputs["input_ids"].shape[1]
     generated_ids = output_ids[0, prompt_len:]
